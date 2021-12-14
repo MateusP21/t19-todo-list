@@ -3,8 +3,10 @@ const listaTarefas = document.getElementById('lista-tarefas');
 const criarTarefa = document.getElementById('criar-tarefa');
 const apagaTudo = document.getElementById('apaga-tudo');
 const removerFinalizados = document.getElementById('remover-finalizados');
+const removerSelecionado = document.getElementById('remover-selecionado');
 const salvarTarefas = document.getElementById('salvar-tarefas');
-
+const moverCima = document.getElementById('mover-cima');
+const moverBaixo = document.getElementById('mover-baixo');
 const rgb128 = 'rgb(128, 128, 128)';
 let itemSelected = '';
 
@@ -66,10 +68,35 @@ function loadTodo() {
   if (data === null) return;
   data.forEach((element) => addTodo(element));
 }
+
+function moveToTop() {
+  const previousElement = itemSelected.previousSibling;
+  if (!itemSelected) return;
+
+  if (previousElement) {
+    itemSelected.parentNode.insertBefore(itemSelected, previousElement);
+  }
+}
+
+function moveToBottom() {
+  const nextElement = itemSelected.nextSibling;
+  if (!itemSelected) return;
+
+  if (nextElement) {
+    itemSelected.parentNode.insertBefore(nextElement, itemSelected);
+  }
+}
+
+function removeSelectedItem() {
+  if (itemSelected) itemSelected.remove();
+}
 window.onload = () => {
   loadTodo();
   criarTarefa.addEventListener('click', () => addTodo());
   apagaTudo.addEventListener('click', () => removeAll());
   removerFinalizados.addEventListener('click', () => removeCompleted());
   salvarTarefas.addEventListener('click', () => saveTodo());
+  moverCima.addEventListener('click', () => moveToTop());
+  moverBaixo.addEventListener('click', () => moveToBottom());
+  removerSelecionado.addEventListener('click', () => removeSelectedItem());
 };
