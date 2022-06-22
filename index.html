@@ -10,28 +10,33 @@
 </head>
 
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  </header>
+
 
   <main>
+    <header class="main-header">
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+
     <section class="todo">
-      <header>
+      <header class="todo-header">
         <input type="text" id="texto-tarefa">
-        <button id="criar-tarefa">Adicionar</button>
+        <button class="add-task" id="criar-tarefa">Adicionar</button>
       </header>
 
-      <ol id="lista-tarefas"></ol>
-      <footer>
-        <button id="apaga-tudo">Limpar</button>
-        <button id="mover-cima">Mover Cima</button>
-        <button id="mover-baixo">Mover Baixo</button>
-        <button id="remover-selecionado">Remover</button>
-        <button id="remover-finalizados">Remover Finalizados</button>
-        <button id="salvar-tarefas">Salvar Tarefas</button>
-      </footer>
+      <ol id="lista-tarefas">
+
+      </ol>
+
     </section>
+    <footer>
+      <button id="apaga-tudo">Limpar</button>
+      <button id="mover-cima">Mover Cima</button>
+      <button id="mover-baixo">Mover Baixo</button>
+      <button id="remover-selecionado">Remover</button>
+      <button id="remover-finalizados">Remover Finalizados</button>
+      <button id="salvar-tarefas">Salvar Tarefas</button>
+    </footer>
   </main>
   <script src="./script.js"> </script>
 </body>
