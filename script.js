@@ -58,8 +58,10 @@ function removeCompleted() {
 
 function saveTodo() {
   const array = [...listaTarefas.children];
-  const listaTarefasArray = array.map((item) =>
-    ({ value: item.innerText, classList: item.classList }));
+  const listaTarefasArray = array.map((item) => ({
+    value: item.innerText,
+    classList: item.classList,
+  }));
   localStorage.setItem('data', JSON.stringify(listaTarefasArray));
 }
 
@@ -92,6 +94,10 @@ function removeSelectedItem() {
 }
 window.onload = () => {
   loadTodo();
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') addTodo();
+  });
+
   criarTarefa.addEventListener('click', () => addTodo());
   apagaTudo.addEventListener('click', () => removeAll());
   removerFinalizados.addEventListener('click', () => removeCompleted());
